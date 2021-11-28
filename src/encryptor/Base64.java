@@ -1,0 +1,22 @@
+package encryptor;
+
+public class Base64 {
+    public static String encode(String toEncode) {
+        try {
+            byte[] utf8StringBuffer = toEncode.getBytes("UTF-8");
+            return java.util.Base64.getEncoder().encodeToString(utf8StringBuffer);
+        }catch(Exception e) {
+            return null;
+        }
+    }
+
+    public static String decode(String toDecode) {
+        try {
+            byte[] utf8StringBuffer = java.util.Base64.getDecoder().decode(toDecode.getBytes("UTF-8"));
+            String decodedFromUtf8 = new String(utf8StringBuffer, "UTF-8");
+            return decodedFromUtf8;
+        }catch(Exception e) {
+            return null;
+        }
+    }
+}
